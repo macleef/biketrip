@@ -47,7 +47,7 @@ public class Bike implements Serializable {
     private Integer idBIKE;
     @Size(max = 45)
     @Column(name = "BIKE_name", length = 45)
-    private String bIKEname;
+    private String bikeName;
     @Size(max = 45)
     @Column(name = "BIKE_groupe", length = 45)
     private String bIKEgroupe;
@@ -62,9 +62,9 @@ public class Bike implements Serializable {
     public Bike() {
     }
 
-    public Bike(Integer idBIKE, String bIKEname, String bIKEgroupe, Integer bIKEkm, User bIKEUser) {
+    public Bike(Integer idBIKE, String bikeName, String bIKEgroupe, Integer bIKEkm, User bIKEUser) {
         this.idBIKE = idBIKE;
-        this.bIKEname = bIKEname;
+        this.bikeName = bikeName;
         this.bIKEgroupe = bIKEgroupe;
         this.bIKEkm = bIKEkm;
         this.bIKEUser = bIKEUser;
@@ -82,12 +82,12 @@ public class Bike implements Serializable {
         this.idBIKE = idBIKE;
     }
 
-    public String getBIKEname() {
-        return bIKEname;
+    public String getBikeName() {
+        return bikeName;
     }
 
-    public void setBIKEname(String bIKEname) {
-        this.bIKEname = bIKEname;
+    public void setBikeName(String bikeName) {
+        this.bikeName = bikeName;
     }
 
     public String getBIKEgroupe() {
