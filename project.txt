@@ -1,0 +1,2 @@
+Trip : get user, get bike, get km, get temp 
+add this trip to the user km, bike km
