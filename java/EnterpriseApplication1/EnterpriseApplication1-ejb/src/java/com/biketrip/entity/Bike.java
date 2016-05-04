@@ -62,6 +62,14 @@ public class Bike implements Serializable {
     public Bike() {
     }
 
+    public Bike(Integer idBIKE, String bIKEname, String bIKEgroupe, Integer bIKEkm, User bIKEUser) {
+        this.idBIKE = idBIKE;
+        this.bIKEname = bIKEname;
+        this.bIKEgroupe = bIKEgroupe;
+        this.bIKEkm = bIKEkm;
+        this.bIKEUser = bIKEUser;
+    }
+
     public Bike(Integer idBIKE) {
         this.idBIKE = idBIKE;
     }
