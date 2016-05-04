@@ -64,6 +64,9 @@ public class Trip implements Serializable {
     @JoinColumn(name = "TRIP_Bike", referencedColumnName = "id_BIKE")
     @ManyToOne
     private Bike tRIPBike;
+    @JoinColumn(name = "TRIP_User", referencedColumnName = "id_USER")
+    @ManyToOne
+    private User tRIPUser;
 
     public Trip() {
     }
@@ -131,6 +134,15 @@ public class Trip implements Serializable {
 
     public void setTRIPBike(Bike tRIPBike) {
         this.tRIPBike = tRIPBike;
+    }
+    
+    
+public Bike getTRIPUser() {
+        return tRIPUser;
+    }
+
+    public void setTRIPUser(User tRIPUser) {
+        this.tRIPUser = tRIPUser;
     }
 
     @Override
