@@ -15,3 +15,5 @@ hs_err_pid*
 /java/EnterpriseApplication1/EnterpriseApplication1-ejb/nbproject/private/
 /java/EnterpriseApplication1/EnterpriseApplication1-ejb/build/
 /java/EnterpriseApplication1/EnterpriseApplication1-ejb/dist/
+/java/EnterpriseApplication1/EnterpriseApplication1-war/build/
+/java/EnterpriseApplication1/build/

@@ -30,14 +30,14 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author florian
  */
 @Entity
-@Table(name = "USER")
+@Table(name = "BIKEUSER")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
     @NamedQuery(name = "User.findByIdUSER", query = "SELECT u FROM User u WHERE u.idUSER = :idUSER"),
-    @NamedQuery(name = "User.findByUSERName", query = "SELECT u FROM User u WHERE u.uSERName = :uSERName"),
+    @NamedQuery(name = "User.findByUSERName", query = "SELECT u FROM User u WHERE u.userName = :userName"),
     @NamedQuery(name = "User.findByUserKm", query = "SELECT u FROM User u WHERE u.userKm = :userKm"),
-    @NamedQuery(name = "User.findByUSERTemps", query = "SELECT u FROM User u WHERE u.uSERTemps = :uSERTemps")})
+    @NamedQuery(name = "User.findByUSERTemps", query = "SELECT u FROM User u WHERE u.userTemps = :userTemps")})
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,12 +49,14 @@ public class User implements Serializable {
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "USER_Name", nullable = false, length = 45)
-    private String uSERName;
+    private String userName;
+    @Column(name = "USER_Password", nullable = false, length = 45)
+    private String userPassword;
     @Column(name = "USER_KM")
     private Integer userKm;
     @Column(name = "USER_Temps")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date uSERTemps;
+    private Date userTemps;
     @OneToMany(mappedBy = "bIKEUser")
     private Collection<Bike> bikeCollection;
 
@@ -65,9 +67,9 @@ public class User implements Serializable {
         this.idUSER = idUSER;
     }
 
-    public User(Integer idUSER, String uSERName) {
+    public User(Integer idUSER, String userName) {
         this.idUSER = idUSER;
-        this.uSERName = uSERName;
+        this.userName = userName;
     }
 
     public Integer getIdUSER() {
@@ -78,14 +80,23 @@ public class User implements Serializable {
         this.idUSER = idUSER;
     }
 
-    public String getUSERName() {
-        return uSERName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUSERName(String uSERName) {
-        this.uSERName = uSERName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    
     public Integer getUserKm() {
         return userKm;
     }
@@ -94,12 +105,12 @@ public class User implements Serializable {
         this.userKm = userKm;
     }
 
-    public Date getUSERTemps() {
-        return uSERTemps;
+    public Date getUserTemps() {
+        return userTemps;
     }
 
-    public void setUSERTemps(Date uSERTemps) {
-        this.uSERTemps = uSERTemps;
+    public void setUserTemps(Date userTemps) {
+        this.userTemps = userTemps;
     }
 
     @XmlTransient
@@ -125,10 +136,7 @@ public class User implements Serializable {
             return false;
         }
         User other = (User) object;
-        if ((this.idUSER == null && other.idUSER != null) || (this.idUSER != null && !this.idUSER.equals(other.idUSER))) {
-            return false;
-        }
-        return true;
+        return !((this.idUSER == null && other.idUSER != null) || (this.idUSER != null && !this.idUSER.equals(other.idUSER)));
     }
 
     @Override

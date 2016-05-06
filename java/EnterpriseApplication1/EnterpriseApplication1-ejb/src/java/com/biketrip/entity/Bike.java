@@ -35,9 +35,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Bike.findAll", query = "SELECT b FROM Bike b"),
     @NamedQuery(name = "Bike.findByIdBIKE", query = "SELECT b FROM Bike b WHERE b.idBIKE = :idBIKE"),
-    @NamedQuery(name = "Bike.findByBIKEname", query = "SELECT b FROM Bike b WHERE b.bIKEname = :bIKEname"),
-    @NamedQuery(name = "Bike.findByBIKEgroupe", query = "SELECT b FROM Bike b WHERE b.bIKEgroupe = :bIKEgroupe"),
-    @NamedQuery(name = "Bike.findByBIKEkm", query = "SELECT b FROM Bike b WHERE b.bIKEkm = :bIKEkm")})
+    @NamedQuery(name = "Bike.findByBIKEname", query = "SELECT b FROM Bike b WHERE b.bikeName = :bikeName"),
+    @NamedQuery(name = "Bike.findByBIKEgroupe", query = "SELECT b FROM Bike b WHERE b.bikeGroupe = :bikeGroupe"),
+    @NamedQuery(name = "Bike.findByBIKEkm", query = "SELECT b FROM Bike b WHERE b.bikeKm = :bikeKm")})
 public class Bike implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -50,9 +50,9 @@ public class Bike implements Serializable {
     private String bikeName;
     @Size(max = 45)
     @Column(name = "BIKE_groupe", length = 45)
-    private String bIKEgroupe;
+    private String bikeGroupe;
     @Column(name = "BIKE_km")
-    private Integer bIKEkm;
+    private Integer bikeKm;
     @OneToMany(mappedBy = "tRIPBike")
     private Collection<Trip> tripCollection;
     @JoinColumn(name = "BIKE_User", referencedColumnName = "id_USER")
@@ -65,8 +65,8 @@ public class Bike implements Serializable {
     public Bike(Integer idBIKE, String bikeName, String bIKEgroupe, Integer bIKEkm, User bIKEUser) {
         this.idBIKE = idBIKE;
         this.bikeName = bikeName;
-        this.bIKEgroupe = bIKEgroupe;
-        this.bIKEkm = bIKEkm;
+        this.bikeGroupe = bIKEgroupe;
+        this.bikeKm = bIKEkm;
         this.bIKEUser = bIKEUser;
     }
 
@@ -91,19 +91,19 @@ public class Bike implements Serializable {
     }
 
     public String getBIKEgroupe() {
-        return bIKEgroupe;
+        return bikeGroupe;
     }
 
     public void setBIKEgroupe(String bIKEgroupe) {
-        this.bIKEgroupe = bIKEgroupe;
+        this.bikeGroupe = bIKEgroupe;
     }
 
     public Integer getBIKEkm() {
-        return bIKEkm;
+        return bikeKm;
     }
 
     public void setBIKEkm(Integer bIKEkm) {
-        this.bIKEkm = bIKEkm;
+        this.bikeKm = bIKEkm;
     }
 
     @XmlTransient
