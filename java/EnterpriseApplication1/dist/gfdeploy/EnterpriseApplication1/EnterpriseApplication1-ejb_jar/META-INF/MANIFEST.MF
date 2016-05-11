@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.4
+Created-By: 1.8.0_03-Ubuntu-8u77-b03-3ubuntu3-b03 (Oracle Corporation)
+
